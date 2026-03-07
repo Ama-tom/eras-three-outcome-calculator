@@ -17,13 +17,13 @@ st.markdown("""
   \"background_color\": \"#ffffff\",
   \"theme_color\": \"#0066cc\",
   \"icons\": [{
-    \"src\": \"https://via.placeholder.com/192?text=ERAS\",
-    \"sizes\": \"192x192\",
-    \"type\": \"image/png\"
-  }, {
-    \"src\": \"https://via.placeholder.com/512?text=ERAS\",
-    \"sizes\": \"512x512\",
-    \"type\": \"image/png\"
+    "src": "https://raw.githubusercontent.com/Ama-tom/eras-africa-risk-pwa/main/icons/eras-192.jpg",
+"sizes": "192x192",
+"type": "image/jpeg"
+}, {
+"src": "https://raw.githubusercontent.com/Ama-tom/eras-africa-risk-pwa/main/icons/eras-512.jpg",
+"sizes": "512x512",
+"type": "image/jpeg"
   }]
 }">
 """, unsafe_allow_html=True)
