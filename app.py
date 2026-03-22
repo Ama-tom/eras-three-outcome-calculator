@@ -497,6 +497,19 @@ PREDICTOR_META = {
     'Epidural_management_perprotocol_':      {'category': 'ERAS - Intraoperative','question': '28. Was epidural management followed according to protocol (if an epidural was placed)?',                          'type': 'yesno'},
     'Nutritional_support_postop_if_ap':      {'category': 'ERAS - Postoperative', 'question': '33. Was appropriate nutritional support provided postoperatively (if indicated)?',                                 'type': 'yesno'},
     'Multimodal_analgesia_postop_opio':      {'category': 'ERAS - Postoperative', 'question': '27. Was multimodal, non-opioid analgesia used postoperatively?',                                                  'type': 'yesno'},
+    'VTE_prophylaxis_continued_postop':     {'category': 'ERAS - Postoperative', 'question': '24. Was VTE prophylaxis continued postoperatively?',                                                                   'type': 'yesno'},
+    'Early_Foley_catheter_removal':         {'category': 'ERAS - Postoperative', 'question': '29. Was the Foley catheter removed early (by POD 1)?',                                                                 'type': 'yesno'},
+    'Early_removal_of_surgical_drains':     {'category': 'ERAS - Postoperative', 'question': '30. Were surgical drains removed early (if placed)?',                                                                  'type': 'yesno'},
+    'IV_fluids_discontinued_early_by_':     {'category': 'ERAS - Postoperative', 'question': '31. Were intravenous fluids discontinued early (by POD 1)?',                                                          'type': 'yesno'},
+    'Postop_nausea_well_managed':           {'category': 'ERAS - Postoperative', 'question': '32. Was postoperative nausea and vomiting effectively managed?',                                                       'type': 'yesno'},
+    'Early_oral_intake_resumed_POD_01':     {'category': 'ERAS - Postoperative', 'question': '25. Was early oral intake resumed on postoperative day 0 or 1?',                                                       'type': 'yesno'},
+    'Early_mobilization_within_24hrs':      {'category': 'ERAS - Postoperative', 'question': '26. Was early mobilization initiated within 24 hours of surgery?',                                                     'type': 'yesno'},
+    'Early_extubation_in_OR':               {'category': 'ERAS - Postoperative', 'question': '23. Was early extubation performed in the operating room or PACU?',                                                   'type': 'yesno'},
+    'Nasogastric_tube_avoided_removed':     {'category': 'ERAS - Postoperative', 'question': '20. Was nasogastric tube avoided or removed early postoperatively?',                                                   'type': 'yesno'},
+    'First_Postop_moblization_time_hrs':    {'category': 'ERAS - Postoperative', 'question': '26b. What was the time to first postoperative mobilization (hours from end of surgery)?',                             'type': 'yesno'},
+    'ERAS_PE_Adherence_rate':               {'category': 'EXCLUDE',              'question': '',                                                                                                                       'type': 'exclude'},
+    'Patient_Satisfaction':                 {'category': 'EXCLUDE',              'question': '',                                                                                                                       'type': 'exclude'},
+    'Pain_Severity':                        {'category': 'EXCLUDE',              'question': '',                                                                                                                       'type': 'exclude'},
 }
 
 CATEGORY_ORDER = [
@@ -539,6 +552,8 @@ def smart_input(pred, info, outcome_key):
         return float(st.radio(label=question, options=options, index=0, horizontal=True,
                                key=f'{outcome_key}_{pred}', help=help_text,
                                format_func=lambda x: lbl_map.get(x, str(x))))
+    elif itype == 'exclude':
+        return 0.0
     else:
         return float(st.radio(label=question, options=[0, 1], index=0, horizontal=True,
                                key=f'{outcome_key}_{pred}', help=help_text,
@@ -573,15 +588,22 @@ for tab, outcome_key in zip(tabs, outcome_keys):
             for cat in CATEGORY_ORDER:
                 if cat not in grouped:
                     continue
+                if cat == 'EXCLUDE':
+                    continue
                 st.markdown(
                     f'<div style="margin:1rem 0 0.3rem;padding:0.4rem 0.8rem;'
                     f'background:#1F4E79;color:white;border-radius:6px;'
                     f'font-size:0.85rem;font-weight:600;">'
                     + CATEGORY_ICONS.get(cat, cat) + '</div>',
                     unsafe_allow_html=True)
+                if cat == 'Sociodemographic':
+                    st.number_input('Patient Age (years) — reference only, not scored', min_value=0, max_value=120, value=40, key=f'{outcome_key}_Age_display')
+                    st.radio('Patient Sex — reference only, not scored', options=['Female', 'Male'], horizontal=True, key=f'{outcome_key}_Sex_display')
                 if cat == 'ERAS - Preoperative':
                     st.caption(ERAS_INSTRUCTION)
                 for pred in grouped[cat]:
+                    if PREDICTOR_META.get(pred, {}).get('type') in ('exclude',):
+                        continue
                     info = model[pred]
                     smart_input(pred, info, outcome_key)
             for pred in preds:
