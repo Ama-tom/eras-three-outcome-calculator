@@ -151,12 +151,37 @@ MODELS_DATA = {
   }
 }
 
-MAX_SCORES = {"POCR_Toal": 51.03, "Total_LOHS_Binary": 68.08, "Postop_Adverse_4": 76.6}
+  "SSI_Outcome": {
+    "Preemptive_analgesia_given_acet_Diclo": {"B_coeff": 1.248,   "weight": 12.48, "OR": 3.483, "p_value": 0.0},
+    "Obesity_BMI_30":                        {"B_coeff": 1.2179,  "weight": 12.18, "OR": 3.380, "p_value": 0.0},
+    "Renal_Comorbidity":                     {"B_coeff": 1.2179,  "weight": 12.18, "OR": 3.380, "p_value": 0.0},
+    "Normothermia_maintained_actively":      {"B_coeff": 0.9814,  "weight": 9.81,  "OR": 2.668, "p_value": 0.0},
+    "Avoidance_of_sedative_premedicat":      {"B_coeff": 0.9761,  "weight": 9.76,  "OR": 2.654, "p_value": 0.0},
+    "Preoperative_education_counselin":      {"B_coeff": 0.9067,  "weight": 9.07,  "OR": 2.476, "p_value": 0.0},
+    "Antiemetic_prophylaxis_given":          {"B_coeff": 0.8348,  "weight": 8.35,  "OR": 2.304, "p_value": 0.0},
+    "Surgical_Complexity":                   {"B_coeff": 0.7749,  "weight": 7.75,  "OR": 2.170, "p_value": 0.0},
+    "Thromboprophylaxis_initiated_preop":    {"B_coeff": 0.7667,  "weight": 7.67,  "OR": 2.153, "p_value": 0.0},
+    "Epidural_management_perprotocol_":      {"B_coeff": 0.7368,  "weight": 7.37,  "OR": 2.089, "p_value": 0.0},
+    "Multimodal_analgesia_postop_opio":      {"B_coeff": 0.732,   "weight": 7.32,  "OR": 2.079, "p_value": 0.0},
+    "Nutritional_risk_assessment_Preop":     {"B_coeff": 0.6886,  "weight": 6.89,  "OR": 1.991, "p_value": 0.0},
+    "Medical_risk_optimization":             {"B_coeff": 0.663,   "weight": 6.63,  "OR": 1.941, "p_value": 0.0},
+    "ASA_physical_status":                   {"B_coeff": 0.6553,  "weight": 6.55,  "OR": 1.926, "p_value": 0.0},
+    "Nutritional_support_postop_if_ap":      {"B_coeff": 0.5951,  "weight": 5.95,  "OR": 1.813, "p_value": 0.0},
+    "Prehabilitation_exercise_program":      {"B_coeff": 0.4151,  "weight": 4.15,  "OR": 1.515, "p_value": 0.0},
+    "Literacy ":                             {"B_coeff": -0.1977, "weight": -1.98, "OR": 0.821, "p_value": 0.0},
+    "Urgency":                               {"B_coeff": -0.5062, "weight": -5.06, "OR": 0.603, "p_value": 0.0},
+    "Abbreviated_fasting_protocol_2hrs":     {"B_coeff": -1.0006, "weight": -10.01,"OR": 0.368, "p_value": 0.0},
+    "Multimodal_analgesia_intraop_opi":      {"B_coeff": -1.4949, "weight": -14.95,"OR": 0.224, "p_value": 0.0},
+  }
+}
+
+MAX_SCORES = {"POCR_Toal": 51.03, "Total_LOHS_Binary": 68.08, "Postop_Adverse_4": 76.6, "SSI_Outcome": 112.56}
 
 LABELS = {
   "POCR_Toal": "30-Day Composite Complications",
   "Total_LOHS_Binary": "Length of Hospital Stay",
-  "Postop_Adverse_4": "Postoperative Adverse Outcome"
+  "Postop_Adverse_4": "Postoperative Adverse Outcome",
+  "SSI_Outcome": "Surgical Site Infection"
 }
 
 SHAP_DATA = {
@@ -171,6 +196,10 @@ SHAP_DATA = {
   "Postop_Adverse_4": {
     "predictors": ["Preop_LOHS_Days","POD_15","Complication_timing","POCR_30","ERAS_PE_Adherence_rate","First_Postop_moblization_time_hrs","other_complications","Nutritional_risk_assessment_Preop","Antiemetic_prophylaxis_given","Urinary_catheter_use_optimized"],
     "shap_vals": [2.100565121398821,2.0126170899081623,1.7586565819798916,1.21732712605731,0.4410410765244811,0.40161495870716357,0.28649068636047054,0.2849976476720602,0.2842723580900896,0.283606498436825]
+  },
+  "SSI_Outcome": {
+    "predictors": ["Multimodal_analgesia_intraop_opi","Abbreviated_fasting_protocol_2hrs","Preemptive_analgesia_given_acet_Diclo","Obesity_BMI_30","Renal_Comorbidity","Normothermia_maintained_actively","Avoidance_of_sedative_premedicat","Preoperative_education_counselin","Antiemetic_prophylaxis_given","Thromboprophylaxis_initiated_preop"],
+    "shap_vals": [1.4949,1.0006,1.248,1.2179,1.2179,0.9814,0.9761,0.9067,0.8348,0.7667]
   }
 }
 
@@ -262,6 +291,89 @@ ERAS_RECS = {
             'Consider early specialist review: infectious disease, renal, cardiology',
             'Discharge only when clinically safe - no fixed day target',
             'Arrange community follow-up within 48 hours of discharge',
+        ],
+    },
+}
+
+ERAS_RECS_SSI = {
+    'LOW': {
+        'color': '#1a7348', 'bg': '#f0faf4', 'border': '#1a7348',
+        'label': 'LOW SSI RISK',
+        'summary': 'Standard SSI prevention bundle. Routine wound surveillance.',
+        'preop': [
+            'Standard preoperative skin preparation (chlorhexidine-alcohol)',
+            'Routine antibiotic prophylaxis per local protocol',
+            'Standard nutritional screening',
+            'Patient education on wound care and hygiene',
+        ],
+        'intraop': [
+            'Standard aseptic technique',
+            'Maintain normothermia throughout surgery',
+            'Goal-directed fluid therapy standard protocol',
+            'Minimize operative time where possible',
+        ],
+        'postop': [
+            'Routine wound inspection POD 1, 3, and 5',
+            'Standard dressing changes',
+            'Early mobilization POD 0 or POD 1',
+            'Target discharge when wound is clean and dry',
+        ],
+    },
+    'INTERMEDIATE': {
+        'color': '#b45309', 'bg': '#fffbeb', 'border': '#b45309',
+        'label': 'INTERMEDIATE SSI RISK',
+        'summary': 'Enhanced SSI prevention. Increased wound surveillance frequency.',
+        'preop': [
+            'Optimize BMI and glycaemic control preoperatively',
+            'Nutritional support if albumin <30 g/L',
+            'Smoking cessation minimum 4 weeks pre-op',
+            'Renal function optimization if comorbid renal disease',
+            'Enhanced antibiotic prophylaxis per local sensitivity patterns',
+        ],
+        'intraop': [
+            'Active normothermia maintenance - forced-air warming mandatory',
+            'Epidural analgesia preferred to reduce physiological stress response',
+            'Minimize drain and catheter use - remove by POD 2 if possible',
+            'Restrict intraoperative opioids - multimodal analgesia protocol',
+            'PONV prophylaxis with two agents to enable early oral intake',
+        ],
+        'postop': [
+            'Daily wound inspection POD 1 through POD 7',
+            'Multimodal postoperative analgesia - opioid-sparing',
+            'Nutritional support from POD 1 - dietitian review',
+            'Extended thromboprophylaxis 28 days',
+            'Twice-weekly wound swabs if any signs of inflammation',
+        ],
+    },
+    'HIGH': {
+        'color': '#c8102e', 'bg': '#fff1f2', 'border': '#c8102e',
+        'label': 'HIGH SSI RISK',
+        'summary': 'Maximum SSI prevention intensity. Senior surgical oversight required.',
+        'preop': [
+            'MANDATORY: Correct obesity, renal comorbidity, and malnutrition before surgery',
+            'Preoperative decolonization protocol (MRSA screen and decolonization)',
+            'Infectious disease review if immunocompromised or prior SSI history',
+            'Optimize HbA1c to <8% if diabetic',
+            'Prehabilitation program - exercise and nutrition minimum 4 weeks',
+            'Senior surgeon and anesthesiologist briefing required',
+        ],
+        'intraop': [
+            'Active forced-air warming - target normothermia throughout',
+            'Epidural or regional anesthesia strongly preferred',
+            'Maximize opioid-sparing multimodal analgesia intraoperatively',
+            'Strict aseptic technique - consultant scrub surgeon',
+            'Minimize surgical drains - remove within 24 hours where possible',
+            'Redose antibiotics if operative time exceeds 3 hours',
+        ],
+        'postop': [
+            'Daily senior surgical review POD 1 through POD 7',
+            'Four-hourly wound temperature and erythema assessment for 48 hours',
+            'Mandatory dietitian review from POD 1',
+            'Multimodal postoperative opioid-sparing analgesia protocol',
+            'Early Foley catheter removal by POD 1',
+            'Extended VTE prophylaxis 35 days',
+            'Low threshold for wound swab, imaging, or re-exploration',
+            'Discharge only when wound fully assessed as clean - no fixed day target',
         ],
     },
 }
@@ -394,7 +506,7 @@ for tab, outcome_key in zip(tabs, outcome_keys):
             if calc_btn:
                 risk_pct   = score_patient(patient_vals, model, max_sc)
                 risk_class = classify(risk_pct)
-                rec        = ERAS_RECS[risk_class]
+                rec        = ERAS_RECS_SSI[risk_class] if outcome_key == 'SSI_Outcome' else ERAS_RECS[risk_class]
                 st.markdown(
                     f'<div class="risk-card" style="background:{rec["bg"]};border-color:{rec["border"]};">'
                     f'<div class="risk-num" style="color:{rec["color"]}">{risk_pct}%</div>'
