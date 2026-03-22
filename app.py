@@ -187,13 +187,51 @@ MODELS_DATA = {
     "Multimodal_analgesia_intraop_opi":      {"B_coeff": -1.4949, "weight": -14.95,"OR": 0.224, "p_value": 0.0},
   },
   "Death_30_Mortality": {
-    "ASA_physical_status":               {"B_coeff": 0.0, "weight": 0.0, "OR": 1.0, "p_value": 1.0}
+    "Neurological_comorbidity":          {"B_coeff": 2.5286,  "weight": 25.29, "OR": 12.539, "p_value": 0.0},
+    "ASA_physical_status":               {"B_coeff": 2.205,   "weight": 22.05, "OR": 9.069,  "p_value": 0.0},
+    "Obesity_BMI_30":                    {"B_coeff": 1.9647,  "weight": 19.65, "OR": 7.133,  "p_value": 0.0},
+    "Renal_Comorbidity":                 {"B_coeff": 1.9647,  "weight": 19.65, "OR": 7.133,  "p_value": 0.0},
+    "Surgical_Complexity":               {"B_coeff": 1.8776,  "weight": 18.78, "OR": 6.537,  "p_value": 0.0},
+    "Antiemetic_prophylaxis_given":      {"B_coeff": 1.6039,  "weight": 16.04, "OR": 4.972,  "p_value": 0.0},
+    "Asthma":                            {"B_coeff": 1.6037,  "weight": 16.04, "OR": 4.971,  "p_value": 0.0},
+    "Diabetic_Mellitus":                 {"B_coeff": 1.2786,  "weight": 12.79, "OR": 3.592,  "p_value": 0.0},
+    "VTE_prophylaxis_continued_postop":  {"B_coeff": 1.1431,  "weight": 11.43, "OR": 3.137,  "p_value": 0.0},
+    "Thromboprophylaxis_initiated_preop":{"B_coeff": 1.1034,  "weight": 11.03, "OR": 3.014,  "p_value": 0.0},
+    "Nutritional_support_postop_if_ap":  {"B_coeff": 0.9027,  "weight": 9.03,  "OR": 2.467,  "p_value": 0.0},
+    "Age_Catagory":                      {"B_coeff": 0.876,   "weight": 8.76,  "OR": 2.401,  "p_value": 0.0},
+    "Nutritional_risk_assessment_Preop": {"B_coeff": 1.0501,  "weight": 10.50, "OR": 2.858,  "p_value": 0.0},
+    "Regional_anesthesia_used_block_L":  {"B_coeff": -1.1637, "weight": -11.64,"OR": 0.312,  "p_value": 0.0},
+    "Nasogastric_tube_avoided_removed":  {"B_coeff": -1.1306, "weight": -11.31,"OR": 0.323,  "p_value": 0.0},
+    "Urgency":                           {"B_coeff": -1.069,  "weight": -10.69,"OR": 0.344,  "p_value": 0.0},
+    "IV_fluids_discontinued_early_by_":  {"B_coeff": -1.2511, "weight": -12.51,"OR": 0.286,  "p_value": 0.0},
+    "Early_oral_intake_resumed_POD_01":  {"B_coeff": -1.2435, "weight": -12.44,"OR": 0.288,  "p_value": 0.0},
+    "Early_removal_of_surgical_drains":  {"B_coeff": -0.9209, "weight": -9.21, "OR": 0.398,  "p_value": 0.0},
+    "Early_Foley_catheter_removal":      {"B_coeff": -0.7657, "weight": -7.66, "OR": 0.465,  "p_value": 0.0},
+    "Early_mobilization_within_24hrs":   {"B_coeff": -2.0738, "weight": -20.74,"OR": 0.126,  "p_value": 0.0},
   },
   "Reoperation_30_Day": {
-    "ASA_physical_status":               {"B_coeff": 0.0, "weight": 0.0, "OR": 1.0, "p_value": 1.0}
+    "Obesity_BMI_30":                    {"B_coeff": 1.6521,  "weight": 16.52, "OR": 5.218,  "p_value": 0.0},
+    "Diabetic_Mellitus":                 {"B_coeff": 1.4449,  "weight": 14.45, "OR": 4.242,  "p_value": 0.0},
+    "Surgical_Complexity":               {"B_coeff": 1.4381,  "weight": 14.38, "OR": 4.213,  "p_value": 0.0},
+    "Prehabilitation_exercise_program":  {"B_coeff": 0.9041,  "weight": 9.04,  "OR": 2.470,  "p_value": 0.0},
+    "Thromboprophylaxis_initiated_preop":{"B_coeff": 1.0232,  "weight": 10.23, "OR": 2.782,  "p_value": 0.0},
+    "Nutritional_risk_assessment_Preop": {"B_coeff": 0.8471,  "weight": 8.47,  "OR": 2.333,  "p_value": 0.0},
+    "ASA_physical_status":               {"B_coeff": 0.9228,  "weight": 9.23,  "OR": 2.516,  "p_value": 0.0},
+    "Minimally_invasive_approach_used":  {"B_coeff": 0.6623,  "weight": 6.62,  "OR": 1.939,  "p_value": 0.0},
+    "Multimodal_analgesia_intraop_opi":  {"B_coeff": -0.7416, "weight": -7.42, "OR": 0.477,  "p_value": 0.0},
+    "Early_Foley_catheter_removal":      {"B_coeff": -0.8408, "weight": -8.41, "OR": 0.431,  "p_value": 0.0},
+    "Nasogastric_tube_avoided_removed":  {"B_coeff": -1.2969, "weight": -12.97,"OR": 0.273,  "p_value": 0.0},
+    "Early_oral_intake_resumed_POD_01":  {"B_coeff": -1.1158, "weight": -11.16,"OR": 0.328,  "p_value": 0.0},
+    "IV_fluids_discontinued_early_by_":  {"B_coeff": -1.3319, "weight": -13.32,"OR": 0.264,  "p_value": 0.0},
+    "Early_mobilization_within_24hrs":   {"B_coeff": -1.2439, "weight": -12.44,"OR": 0.288,  "p_value": 0.0},
+    "Urgency":                           {"B_coeff": -1.5319, "weight": -15.32,"OR": 0.216,  "p_value": 0.0},
   },
   "Readmission_30_day": {
-    "ASA_physical_status":               {"B_coeff": 0.0, "weight": 0.0, "OR": 1.0, "p_value": 1.0}
+    "Preoperative_education_counselin":      {"B_coeff": 1.8124,  "weight": 18.12, "OR": 6.124,  "p_value": 0.0},
+    "Nasogastric_tube_avoided_removed":      {"B_coeff": 0.935,   "weight": 9.35,  "OR": 2.547,  "p_value": 0.0},
+    "IV_fluids_discontinued_early_by_":      {"B_coeff": 0.6342,  "weight": 6.34,  "OR": 1.886,  "p_value": 0.0},
+    "Early_removal_of_surgical_drains":      {"B_coeff": 0.5878,  "weight": 5.88,  "OR": 1.800,  "p_value": 0.0},
+    "Smoking_alcohol_cessation_Counselling": {"B_coeff": 0.5836,  "weight": 5.84,  "OR": 1.793,  "p_value": 0.0},
   }
 }
 
@@ -225,6 +263,18 @@ SHAP_DATA = {
   "SSI_Outcome": {
     "predictors": ["Multimodal_analgesia_intraop_opi","Abbreviated_fasting_protocol_2hrs","Preemptive_analgesia_given_acet_Diclo","Obesity_BMI_30","Renal_Comorbidity","Normothermia_maintained_actively","Avoidance_of_sedative_premedicat","Preoperative_education_counselin","Antiemetic_prophylaxis_given","Thromboprophylaxis_initiated_preop"],
     "shap_vals": [1.4949,1.0006,1.248,1.2179,1.2179,0.9814,0.9761,0.9067,0.8348,0.7667]
+  },
+  "Death_30_Mortality": {
+    "predictors": ["Neurological_comorbidity","ASA_physical_status","Early_mobilization_within_24hrs","Obesity_BMI_30","Renal_Comorbidity","Surgical_Complexity","Antiemetic_prophylaxis_given","Diabetic_Mellitus","IV_fluids_discontinued_early_by_","Early_oral_intake_resumed_POD_01"],
+    "shap_vals": [2.5286,2.205,2.0738,1.9647,1.9647,1.8776,1.6039,1.2786,1.2511,1.2435]
+  },
+  "Reoperation_30_Day": {
+    "predictors": ["Urgency","IV_fluids_discontinued_early_by_","Obesity_BMI_30","Early_mobilization_within_24hrs","Nasogastric_tube_avoided_removed","Diabetic_Mellitus","Surgical_Complexity","Early_oral_intake_resumed_POD_01","Thromboprophylaxis_initiated_preop","ASA_physical_status"],
+    "shap_vals": [1.5319,1.3319,1.6521,1.2439,1.2969,1.4449,1.4381,1.1158,1.0232,0.9228]
+  },
+  "Readmission_30_day": {
+    "predictors": ["Preoperative_education_counselin","Nasogastric_tube_avoided_removed","IV_fluids_discontinued_early_by_","Early_removal_of_surgical_drains","Smoking_alcohol_cessation_Counselling"],
+    "shap_vals": [1.8124,0.935,0.6342,0.5878,0.5836]
   }
 }
 
@@ -318,6 +368,60 @@ ERAS_RECS = {
             'Arrange community follow-up within 48 hours of discharge',
         ],
     },
+}
+
+ERAS_RECS_MORTALITY = {
+    'LOW':  {'color':'#1a7348','bg':'#f0faf4','border':'#1a7348','label':'LOW MORTALITY RISK',
+             'summary':'Standard perioperative care. Routine monitoring.',
+             'preop':['Standard risk assessment and optimization','Routine nutrition and anaemia screening','Patient education on expected recovery'],
+             'intraop':['Standard anesthetic technique','Goal-directed fluid therapy','Maintain normothermia'],
+             'postop':['Early mobilization POD 0 or 1','Early oral intake within 6 hours','Standard thromboprophylaxis','Target discharge POD 3-5']},
+    'INTERMEDIATE':{'color':'#b45309','bg':'#fffbeb','border':'#b45309','label':'INTERMEDIATE MORTALITY RISK',
+             'summary':'Enhanced monitoring. Senior review recommended.',
+             'preop':['Optimize ASA III-IV comorbidities pre-operatively','Correct malnutrition and anaemia','Renal and neurological review if indicated','Glycaemic optimization if diabetic'],
+             'intraop':['Regional anesthesia preferred','Active normothermia','Minimize operative time','Avoid NGT unless essential'],
+             'postop':['Early mobilization mandatory POD 0','Early oral intake within 4 hours','Daily consultant review','Extended VTE prophylaxis 28 days','Nutritional support from POD 1']},
+    'HIGH': {'color':'#c8102e','bg':'#fff1f2','border':'#c8102e','label':'HIGH MORTALITY RISK',
+             'summary':'Maximum intensity care. HDU/ICU step-down. Senior oversight mandatory.',
+             'preop':['MANDATORY: Correct all modifiable risk factors before surgery','Cardiology and renal review','Infectious disease review if asthma or immunocompromised','Intensive family counseling and informed consent'],
+             'intraop':['Invasive hemodynamic monitoring','Regional anesthesia strongly preferred','Senior anesthetist present throughout','Limit operative time — damage control if applicable'],
+             'postop':['HDU or ICU step-down minimum 24 hours','Four-hourly vitals for 48 hours','Daily consultant review POD 1-7','Mandatory early mobilization and nutrition','Extended VTE prophylaxis 35 days','Low threshold for investigation of any deterioration']},
+}
+
+ERAS_RECS_REOPERATION = {
+    'LOW':  {'color':'#1a7348','bg':'#f0faf4','border':'#1a7348','label':'LOW REOPERATION RISK',
+             'summary':'Standard surgical care. Routine wound and bowel monitoring.',
+             'preop':['Standard surgical risk assessment','Routine bowel preparation only if indicated','Nutrition screening'],
+             'intraop':['Minimize drain use','Careful hemostasis','Avoid unnecessary bowel anastomoses if unstable'],
+             'postop':['Early oral intake','Daily wound inspection','Standard thromboprophylaxis','Target discharge when bowel function returns']},
+    'INTERMEDIATE':{'color':'#b45309','bg':'#fffbeb','border':'#b45309','label':'INTERMEDIATE REOPERATION RISK',
+             'summary':'Enhanced surgical vigilance. Close bowel and wound monitoring.',
+             'preop':['Optimize diabetes and BMI pre-operatively','Nutritional support if albumin <30 g/L','Prehabilitation if time permits'],
+             'intraop':['Opioid-sparing analgesia preferred','Nasogastric tube avoided','Early Foley catheter removal planned'],
+             'postop':['Early mobilization POD 0','Early oral intake within 4 hours','Daily wound inspection','Twice-daily abdominal examination for 48 hours','Extended thromboprophylaxis 28 days']},
+    'HIGH': {'color':'#c8102e','bg':'#fff1f2','border':'#c8102e','label':'HIGH REOPERATION RISK',
+             'summary':'Maximum surgical vigilance. Senior oversight. Low threshold for re-exploration.',
+             'preop':['MANDATORY: Correct obesity and diabetes before elective surgery','Senior surgeon briefing required','Prehabilitation minimum 4 weeks'],
+             'intraop':['Multimodal opioid-sparing analgesia mandatory','Minimize drains and catheters','Nasogastric tube avoided','Senior surgeon present throughout'],
+             'postop':['Daily senior surgical review POD 1-7','Four-hourly abdominal assessment for 48 hours','Early IV fluid discontinuation by POD 1','Early mobilization POD 0','Low threshold for CT abdomen if any concern','Discharge only when fully assessed']},
+}
+
+ERAS_RECS_READMISSION = {
+    'LOW':  {'color':'#1a7348','bg':'#f0faf4','border':'#1a7348','label':'LOW READMISSION RISK',
+             'summary':'Standard discharge planning. Routine follow-up.',
+             'preop':['Standard education and counseling','Routine risk assessment'],
+             'intraop':['Standard ERAS care'],
+             'postop':['Standard discharge planning','Patient education on warning signs','Follow-up appointment within 2 weeks']},
+    'INTERMEDIATE':{'color':'#b45309','bg':'#fffbeb','border':'#b45309','label':'INTERMEDIATE READMISSION RISK',
+             'summary':'Enhanced discharge planning. Close community follow-up.',
+             'preop':['Smoking cessation counseling minimum 4 weeks pre-op','Structured patient education on recovery'],
+             'intraop':['Early IV fluid discontinuation planned','Minimize drains to reduce readmission risk'],
+             'postop':['Structured discharge planning documented before discharge','Patient education on wound care and danger signs','Telephone follow-up at 48 hours post-discharge','Outpatient review within 7 days']},
+    'HIGH': {'color':'#c8102e','bg':'#fff1f2','border':'#c8102e','label':'HIGH READMISSION RISK',
+             'summary':'Intensive discharge planning. Community follow-up within 48 hours mandatory.',
+             'preop':['MANDATORY: Smoking and alcohol cessation counseling','Full structured preoperative education','Social support assessment'],
+             'intraop':['Early nasogastric tube removal','Early drain removal planned','IV fluid discontinuation by POD 1'],
+             'postop':['Discharge planning documented from POD 1','Community nurse referral before discharge','Telephone review at 24 and 48 hours post-discharge','Outpatient review within 48-72 hours','Clear written instructions on danger signs and when to return']},
 }
 
 ERAS_RECS_SSI = {
@@ -535,6 +639,8 @@ PREDICTOR_META = {
     'Early_extubation_in_OR':               {'category': 'ERAS - Postoperative', 'question': '23. Was early extubation performed in the operating room or PACU?',                                                   'type': 'yesno'},
     'Nasogastric_tube_avoided_removed':     {'category': 'ERAS - Postoperative', 'question': '20. Was nasogastric tube avoided or removed early postoperatively?',                                                   'type': 'yesno'},
     'First_Postop_moblization_time_hrs':    {'category': 'ERAS - Postoperative', 'question': '26b. What was the time to first postoperative mobilization (hours from end of surgery)?',                             'type': 'yesno'},
+    'Asthma':                               {'category': 'Clinical',             'question': 'Does the patient have a diagnosis of asthma or chronic respiratory disease?',                          'type': 'yesno'},
+    'Age_Catagory':                         {'category': 'Sociodemographic',     'question': 'What is the patient age category?',                                                                             'type': 'select', 'options': [1,2,3,4], 'labels': {1:'Below 20 years', 2:'21-40 years', 3:'41-60 years', 4:'Above 61 years'}},
     'ERAS_PE_Adherence_rate':               {'category': 'EXCLUDE',              'question': '',                                                                                                                       'type': 'exclude'},
     'Patient_Satisfaction':                 {'category': 'EXCLUDE',              'question': '',                                                                                                                       'type': 'exclude'},
     'Pain_Severity':                        {'category': 'EXCLUDE',              'question': '',                                                                                                                       'type': 'exclude'},
@@ -649,7 +755,11 @@ for tab, outcome_key in zip(tabs, outcome_keys):
             if calc_btn:
                 risk_pct   = score_patient(patient_vals, model, max_sc)
                 risk_class = classify(risk_pct)
-                rec        = ERAS_RECS_SSI[risk_class] if outcome_key == 'SSI_Outcome' else ERAS_RECS[risk_class]
+                rec        = (ERAS_RECS_SSI[risk_class] if outcome_key == 'SSI_Outcome'
+                       else ERAS_RECS_MORTALITY[risk_class] if outcome_key == 'Death_30_Mortality'
+                       else ERAS_RECS_REOPERATION[risk_class] if outcome_key == 'Reoperation_30_Day'
+                       else ERAS_RECS_READMISSION[risk_class] if outcome_key == 'Readmission_30_day'
+                       else ERAS_RECS[risk_class])
                 st.markdown(
                     f'<div class="risk-card" style="background:{rec["bg"]};border-color:{rec["border"]};">'
                     f'<div class="risk-num" style="color:{rec["color"]}">{risk_pct}%</div>'
