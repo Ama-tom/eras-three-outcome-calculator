@@ -84,7 +84,7 @@ def results_to_excel(df_results):
 # ============================================================
 
 st.set_page_config(
-    page_title='ERAS Africa Risk Calculator | 7 Outcome Models',
+    page_title='ERAS Africa Seven Outcome Predictor',
     page_icon='Hospital',
     layout='wide',
     initial_sidebar_state='expanded'
@@ -553,7 +553,7 @@ footer { visibility: hidden; }
 </style>""", unsafe_allow_html=True)
 
 st.markdown("""<div class="hero">
-    <h1>ERAS Africa Risk Calculator</h1>
+    <h1>ERAS Africa Seven Outcome Predictor</h1>
     <p>Seven independent B-coefficient scoring models &nbsp;|&nbsp;
     30-Day Composite Complications &nbsp;|&nbsp;
     Length of Hospital Stay &nbsp;|&nbsp;
@@ -570,6 +570,8 @@ st.markdown("""<div class="hero">
 with st.sidebar:
     st.markdown('### About')
     st.markdown("""
+**ERAS Africa Seven Outcome Predictor**
+
 **Seven independent models** built on univariate
 logistic regression (p < 0.15), B-coefficient x 10 scoring,
 with forward stepwise selection.
@@ -962,4 +964,4 @@ Download the template first to ensure correct column names.
             st.info('Make sure you used the correct template and did not rename any columns.')
 
 st.markdown('---')
-st.caption('ERAS Africa Risk Calculator | 7 outcome models | B-coefficient scoring | TRIPOD+AI 2024 | CONSORT 2025 | SPIRIT 2025 | 721 patients | 7 Ethiopian hospitals | github.com/Ama-tom/eras-africa-risk-pwa')
+st.caption('ERAS Africa Seven Outcome Predictor | 7 outcome models | B-coefficient scoring | TRIPOD+AI 2024 | CONSORT 2025 | SPIRIT 2025 | 721 patients | 7 Ethiopian hospitals | github.com/Ama-tom/eras-three-outcome-calculator')
