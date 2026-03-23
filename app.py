@@ -690,7 +690,7 @@ ERAS_INSTRUCTION = (
 def smart_input(pred, info, outcome_key):
     meta      = PREDICTOR_META.get(pred, {})
     direction = 'increases risk' if info['weight'] > 0 else 'decreases risk'
-    help_text = f'OR={info["OR"]:.3f} | {direction} | p={info["p_value"]:.4f}'
+    help_text = f'{direction} | p={info["p_value"]:.4f}'
     question  = meta.get('question', pred.replace('_', ' '))
     itype     = meta.get('type', 'yesno')
     if itype == 'select':
@@ -892,7 +892,7 @@ for tab, outcome_key in zip(tabs, outcome_keys):
             rows = []
             for pred, info in sorted(model.items(), key=lambda x: abs(x[1]['weight']), reverse=True):
                 rows.append({'Predictor': pred.replace('_',' '), 'B-coefficient': info['B_coeff'],
-                             'B x 10': info['weight'], 'Odds Ratio': info['OR'], 'p-value': info['p_value']})
+                             'B x 10': info['weight'], 'p-value': info['p_value']})
             st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
 
 # -- Batch Analysis Tab -------------------------------------
